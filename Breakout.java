@@ -72,7 +72,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void setupBricksRows(){
-		int y = 0;
+		int y = BRICK_Y_OFFSET;
 		for (int i=1; i<NBRICK_ROWS + 1; i++){
 			buildBrickColumns(y);
 			y += BRICK_HEIGHT + BRICK_SEP;
