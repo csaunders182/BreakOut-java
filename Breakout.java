@@ -102,8 +102,12 @@ public class Breakout extends GraphicsProgram {
 			return Color.RED;
 		} else if (y==94 || y==106){
 			return Color.ORANGE;
+		} else if(y==118 || y==130){
+		return Color.GREEN;
+		} else if (y==142 || y==154){
+			return Color.CYAN;
 		} else {
-		return Color.black;
+			return Color.black;
 		}
 	}
 }
