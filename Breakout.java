@@ -65,12 +65,22 @@ public class Breakout extends GraphicsProgram {
 		createPaddle();
 		addMouseListeners();
 		createBall();
+		vy = 3.0;
+		vx = rGen.nextDouble(1.0,3.0);
+		if (rGen.nextBoolean(0.5)) vx = -vx;
 	}
 
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	public void run() {
-		/* You fill this in, along with any subsidiary methods */
+		while (true) {
+			moveBall();
+			checkForCollision();
+			pause(20);
+		}
+	}
+	private void moveBall(){
+		ball.move(vx, vy);
 	}
 	
 	// Responsible for moving the paddle in accordance with the mouse
@@ -137,6 +147,8 @@ public class Breakout extends GraphicsProgram {
 	
 	//keeps track of ball for rebounding and collision
 	private GOval ball;
+	//ball velocity tracker
+	private double vx, vy;
 	
 	
 	//RandomGenerator for ball initial arc
