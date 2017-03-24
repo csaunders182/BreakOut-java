@@ -131,7 +131,7 @@ public class Breakout extends GraphicsProgram {
 	private void createBall(){
 		ball = new GOval(BALL_RADIUS,BALL_RADIUS);
 		ball.setFilled(true);
-		add(ball, WIDTH/2, HEIGHT/2);
+		add(ball, WIDTH/2 - 8, HEIGHT/2);
 	}
 	
 	//INSTANCE VARIABLES
