@@ -61,11 +61,42 @@ public class Breakout extends GraphicsProgram {
 	/** Sets up the Breakout program. */
 	public void init() {
 		/* You fill this in, along with any subsidiary methods */
+		setupBricksRows();
+		createBumper();
 	}
 
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
+	}
+	
+	private void setupBricksRows(){
+		int y = 0;
+		for (int i=1; i<NBRICK_ROWS + 1; i++){
+			buildBrickColumns(y);
+			y += BRICK_HEIGHT;
+		}
+	}
+	
+	private void buildBrickColumns(int y){
+		int x = 0;
+		for (int i=0; i<NBRICKS_PER_ROW; i++){
+			GRect brick = new GRect(x,y,BRICK_WIDTH,BRICK_HEIGHT);
+			brick.setFilled(true);
+			brick.setFillColor(brickColorGetter());
+			add(brick);
+			x += BRICK_HEIGHT;			
+		}
+		x = 0;
+	}
+	
+	private void createBumper(){
+		
+	}
+	
+	private Color brickColorGetter(){
+		Color color = Color.black;
+		return color;
 	}
 }
