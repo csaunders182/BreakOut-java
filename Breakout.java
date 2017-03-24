@@ -83,10 +83,10 @@ public class Breakout extends GraphicsProgram {
 		ball.move(vx, vy);
 	}
 	private void checkForCollision(){
-		if (ball.getY() > HEIGHT - 20 || ball.getY() < 0 + 4 ){
+		if (ball.getY() > HEIGHT - 30 || ball.getY() < 0 + 4 ){
 			vy = -vy;
 			println("y: " + ball.getY());
-		} else if (ball.getX() > WIDTH -BALL_RADIUS || ball.getX() < 0 + 0.5638400197979143){
+		} else if (ball.getX() > WIDTH -BALL_RADIUS || ball.getX() < 0 + 0.56){
 			vx = -vx;
 			println("x: " + ball.getX());
 		}
