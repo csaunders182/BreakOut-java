@@ -89,7 +89,6 @@ public class Breakout extends GraphicsProgram {
 			add(brick);
 			x += BRICK_WIDTH + BRICK_SEP;	
 //			println(brick);
-			println("x: " +x);
 			println("y: " + y);
 		}
 //		x = 0;
