@@ -64,6 +64,7 @@ public class Breakout extends GraphicsProgram {
 		setupBricksRows();
 		createPaddle();
 		addMouseListeners();
+		createBall();
 	}
 
 	/* Method: run() */
@@ -72,10 +73,14 @@ public class Breakout extends GraphicsProgram {
 		/* You fill this in, along with any subsidiary methods */
 	}
 	
+	// Responsible for moving the paddle in accordance with the mouse
+	// location on screen. X axis only!
 	public void mouseMoved(MouseEvent e){
 		paddle.setLocation(e.getX() - PADDLE_WIDTH/2 , HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT);
 	}
 	
+	//responsible for building out the rows of bricks. feed y position
+	//location to both setupColumns() and brickColorGetter()
 	private void setupBricksRows(){
 		int y = BRICK_Y_OFFSET;
 		for (int i=1; i<NBRICK_ROWS + 1; i++){
@@ -84,6 +89,8 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	//adds each to a row to the appropriate column length
+	//takes a int y to determine y position of brick
 	private void buildBrickColumns(int y){
 		int x = (WIDTH - (BRICK_WIDTH)*NBRICKS_PER_ROW)/2 - 19 ;
 		for (int i=0; i<NBRICKS_PER_ROW; i++){
@@ -95,6 +102,7 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	//creates the game paddle and places it in the world
 	private void createPaddle(){
 		paddle = new GRect(WIDTH/2 - PADDLE_WIDTH/2 - 8  , HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
@@ -104,6 +112,7 @@ public class Breakout extends GraphicsProgram {
 		println(paddle);
 	}
 	
+	//takes y position data from setupBricksRows() to determine row colow
 	private Color brickColorGetter(int y){
 		if (y==70 || y==82){
 			return Color.RED;
@@ -118,5 +127,17 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	//create and adds ball to canvas
+	private void createBall(){
+		ball = new GOval(BALL_RADIUS,BALL_RADIUS);
+		ball.setFilled(true);
+		add(ball, WIDTH/2, HEIGHT/2);
+	}
+	
+	//INSTANCE VARIABLES
+	//keeps track of paddle for mouseListener to reposition
 	private GRect paddle;
+	
+	//keeps track of ball for rebounding and collision
+	private GOval ball;
 }
