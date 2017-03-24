@@ -65,7 +65,7 @@ public class Breakout extends GraphicsProgram {
 		createPaddle();
 		addMouseListeners();
 		createBall();
-		vy = 3.0;
+		vy = 4.0;
 		vx = rGen.nextDouble(1.0,3.0);
 		if (rGen.nextBoolean(0.5)) vx = -vx;
 	}
