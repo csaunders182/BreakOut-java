@@ -86,7 +86,7 @@ public class Breakout extends GraphicsProgram {
 		if (ball.getY() > HEIGHT - 30 || ball.getY() < 0 + 4 ){
 			vy = -vy;
 			println("y: " + ball.getY());
-		} else if (ball.getX() > WIDTH -BALL_RADIUS || ball.getX() < 0 + 1){
+		} else if (ball.getX() > WIDTH -BALL_RADIUS || ball.getX() < 0 + 1.07){
 			vx = -vx;
 			println("x: " + ball.getX());
 		}
