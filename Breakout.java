@@ -98,9 +98,9 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private Color brickColorGetter(int y){
-		if (y==0 || y==1){
+		if (y==70 || y==82){
 			return Color.RED;
-		} else if (y==2 || y==3){
+		} else if (y==94 || y==106){
 			return Color.ORANGE;
 		} else {
 		return Color.black;
