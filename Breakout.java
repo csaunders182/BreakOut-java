@@ -63,12 +63,17 @@ public class Breakout extends GraphicsProgram {
 		/* You fill this in, along with any subsidiary methods */
 		setupBricksRows();
 		createPaddle();
+		addMouseListeners();
 	}
 
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
+	}
+	
+	public void mouseMoved(MouseEvent e){
+		paddle.setLocation(e.getX(), PADDLE_Y_OFFSET - PADDLE_HEIGHT);
 	}
 	
 	private void setupBricksRows(){
