@@ -75,12 +75,23 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 		while (true) {
 			moveBall();
-//			checkForCollision();
+			checkForCollision();
 			pause(20);
 		}
 	}
 	private void moveBall(){
 		ball.move(vx, vy);
+	}
+	private void checkForCollision(){
+		if (ball.getY() > HEIGHT){
+			vy = -vy;
+		} else if (ball.getY() < 0){
+			vy = -vy;
+		} else if (ball.getX() > WIDTH){
+			vx = -vx;
+		} else if (ball.getX() < 0){
+			vx = -vx;
+		}
 	}
 	
 	// Responsible for moving the paddle in accordance with the mouse
