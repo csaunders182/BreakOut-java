@@ -62,7 +62,7 @@ public class Breakout extends GraphicsProgram {
 	public void init() {
 		/* You fill this in, along with any subsidiary methods */
 		setupBricksRows();
-		createBumper();
+		createPaddle();
 	}
 
 	/* Method: run() */
@@ -93,8 +93,9 @@ public class Breakout extends GraphicsProgram {
 //		x = 0;
 	}
 	
-	private void createBumper(){
-		
+	private void createPaddle(){
+		GRect paddle = new GRect(PADDLE_WIDTH,PADDLE_HEIGHT,WIDTH/2,HEIGHT-PADDLE_Y_OFFSET);
+		add(paddle);
 	}
 	
 	private Color brickColorGetter(int y){
