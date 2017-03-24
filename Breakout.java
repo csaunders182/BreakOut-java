@@ -85,7 +85,7 @@ public class Breakout extends GraphicsProgram {
 		for (int i=0; i<NBRICKS_PER_ROW; i++){
 			GRect brick = new GRect(x,y,BRICK_WIDTH,BRICK_HEIGHT);
 			brick.setFilled(true);
-			brick.setFillColor(brickColorGetter());
+			brick.setFillColor(brickColorGetter(y));
 			add(brick);
 			x += BRICK_WIDTH + BRICK_SEP;	
 //			println(brick);
@@ -99,8 +99,13 @@ public class Breakout extends GraphicsProgram {
 		
 	}
 	
-	private Color brickColorGetter(){
-		Color color = Color.black;
-		return color;
+	private Color brickColorGetter(int y){
+		if (y==0 || y==1){
+			return Color.RED;
+		} else if (y==2 || y==3){
+			return Color.ORANGE;
+		} else {
+		return Color.black;
+		}
 	}
 }
