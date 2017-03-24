@@ -80,7 +80,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void buildBrickColumns(int y){
-		int x = (WIDTH - (BRICK_WIDTH)*NBRICKS_PER_ROW)/2 - 40 ;
+		int x = (WIDTH - (BRICK_WIDTH)*NBRICKS_PER_ROW)/2 - 20 ;
 		print(WIDTH);
 		for (int i=0; i<NBRICKS_PER_ROW; i++){
 			GRect brick = new GRect(x,y,BRICK_WIDTH,BRICK_HEIGHT);
