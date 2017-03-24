@@ -85,6 +85,7 @@ public class Breakout extends GraphicsProgram {
 	private void checkForCollision(){
 		if (ball.getY() > HEIGHT - BALL_RADIUS){
 			vy = -vy;
+			println(ball.getY());
 		} else if (ball.getY() < 0){
 			vy = -vy;
 		} else if (ball.getX() > WIDTH -BALL_RADIUS){
