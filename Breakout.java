@@ -91,7 +91,7 @@ public class Breakout extends GraphicsProgram {
 			println("x: " +x);
 			println("y: " + y);
 		}
-		x = 0;
+//		x = 0;
 	}
 	
 	private void createBumper(){
