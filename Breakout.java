@@ -82,7 +82,7 @@ public class Breakout extends GraphicsProgram {
 	private void buildBrickColumns(int y){
 		int x = 0;
 		for (int i=0; i<NBRICKS_PER_ROW; i++){
-			GRect brick = new GRect(x,y,BRICK_WIDTH,BRICK_HEIGHT);
+			GRect brick = new GRect(x+BRICK_SEP,y,BRICK_WIDTH,BRICK_HEIGHT);
 			brick.setFilled(true);
 			brick.setFillColor(brickColorGetter());
 			add(brick);
