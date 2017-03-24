@@ -107,9 +107,6 @@ public class Breakout extends GraphicsProgram {
 		paddle = new GRect(WIDTH/2 - PADDLE_WIDTH/2 - 8  , HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT, PADDLE_WIDTH, PADDLE_HEIGHT);
 		paddle.setFilled(true);
 		add(paddle);
-		println(HEIGHT-PADDLE_Y_OFFSET);
-		println(WIDTH/2);
-		println(paddle);
 	}
 	
 	//takes y position data from setupBricksRows() to determine row colow
