@@ -76,7 +76,7 @@ public class Breakout extends GraphicsProgram {
 		while (true) {
 			moveBall();
 			checkForCollision();
-			pause(50);
+			pause(20);
 		}
 	}
 	private void moveBall(){
@@ -85,11 +85,10 @@ public class Breakout extends GraphicsProgram {
 	private void checkForCollision(){
 		if (ball.getY() > HEIGHT - BALL_RADIUS || ball.getY() < 0 ){
 			vy = -vy;
-			println(ball.getY());
-		} else if (ball.getX() > WIDTH -BALL_RADIUS){
+			println("y: " + ball.getY());
+		} else if (ball.getX() > WIDTH -BALL_RADIUS || ball.getX() < 0){
 			vx = -vx;
-		} else if (ball.getX() < 0){
-			vx = -vx;
+			println("x: " + ball.getX());
 		}
 	}
 	
