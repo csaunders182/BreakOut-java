@@ -140,4 +140,8 @@ public class Breakout extends GraphicsProgram {
 	
 	//keeps track of ball for rebounding and collision
 	private GOval ball;
+	
+	
+	//RandomGenerator for ball initial arc
+	RandomGenerator rGen = RandomGenerator.getInstance();
 }
