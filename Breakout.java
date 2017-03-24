@@ -87,7 +87,9 @@ public class Breakout extends GraphicsProgram {
 			brick.setFillColor(brickColorGetter());
 			add(brick);
 			x += BRICK_HEIGHT;	
-			println(brick);
+//			println(brick);
+			println("x: " +x);
+			println("y: " + y);
 		}
 		x = 0;
 	}
