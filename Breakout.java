@@ -86,11 +86,13 @@ public class Breakout extends GraphicsProgram {
 		if (ball.getY() > HEIGHT - 30 || ball.getY() < 0 + 4 ){
 			vy = -vy;
 			println("y: " + ball.getY());
-		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS -1|| ball.getX() < 0 + 1.07){
+		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS -1|| ball.getX() < 0 + 2.07){
 			vx = -vx;
 			println("x: " + ball.getX());
 		}
-		getElementAt(ball.getX(),ball.getY());
+		if (getElementAt(ball.getX(),ball.getY()) != null){
+			
+		}
 	}
 	
 	// Responsible for moving the paddle in accordance with the mouse
