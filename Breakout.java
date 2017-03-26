@@ -212,7 +212,7 @@ public class Breakout extends GraphicsProgram {
 		} else {
 			ball.setLocation(WIDTH/2, HEIGHT/2);
 			ballStartAngle();
-			liveTracker = new GLabel("Lives: " + lives);
+			liveTracker.setLabel("Lives: " + lives);
 			waitForClick();
 		}
 	}
