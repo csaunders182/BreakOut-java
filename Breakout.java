@@ -62,6 +62,7 @@ public class Breakout extends GraphicsProgram {
 	public void init() {
 		createBall();
 		setupBricksRows();
+		createLabels();
 		createPaddle();
 		addMouseListeners();
 		ballStartAngle();
@@ -70,7 +71,6 @@ public class Breakout extends GraphicsProgram {
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	public void run() {
-		createLabels();
 		vy = 4.0;
 		waitForClick();
 		while (true) {
@@ -176,8 +176,10 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void createLabels(){
+		if (liveTracker == null) {
 		liveTracker = new GLabel("Lives: " + lives);
 		add(liveTracker, 10, 20);
+		}
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
@@ -210,10 +212,10 @@ public class Breakout extends GraphicsProgram {
 			gameOver();
 		} else {
 			ball.setLocation(WIDTH/2, HEIGHT/2);
-			ballStartAngle();
-			liveTracker.setLabel("Lives: " + lives);
+			ballStartAngle();			
 			waitForClick();
 		}
+		liveTracker.setLabel("Lives: " + lives);
 	}
 	
 	private void gameOver(){
