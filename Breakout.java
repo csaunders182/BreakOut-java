@@ -174,13 +174,9 @@ public class Breakout extends GraphicsProgram {
 	private void collisionLogic(double x, double y){
 		GObject object = getCollidingObject(x,y);
 		vy = -vy;
-//		println(object);
-//		if(getCollidingObject(x,y) == paddle){
-//			vy = -vy;
-//		} else {
-//			vy = -vy;
-//			remove(getCollidingObject(x,y));
-//		}
+		if(getCollidingObject(x,y) != paddle){
+			remove(object);
+		}
 	}
 	
 	//INSTANCE VARIABLES
