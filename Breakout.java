@@ -89,7 +89,7 @@ public class Breakout extends GraphicsProgram {
 			println("y: " + ball.getY());
 		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS){
 			vx = -vx;
-			ball.setLocation(WIDTH - 1, ball.getY());
+			ball.setLocation(WIDTH - BALL_RADIUS * 2, ball.getY());
 		} else if (ball.getX() < 0) {
 			vx = -vx;
 			ball.setLocation(0, ball.getY());
