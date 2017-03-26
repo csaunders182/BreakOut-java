@@ -174,6 +174,7 @@ public class Breakout extends GraphicsProgram {
 	
 	private void collisionLogic(double x, double y){
 		if(getCollidingObject(x,y) == paddle){
+			ball.setLocation(ball.getX(), HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT);
 			vy = -vy;
 		} else {
 			vy = -vy;
