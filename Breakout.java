@@ -83,26 +83,10 @@ public class Breakout extends GraphicsProgram {
 	private void moveBall(){
 		ball.move(vx, vy);
 	}
+	
 	private void checkForCollision(){
-		if (ball.getY() > HEIGHT - 30 || ball.getY() < 0 + 4 ){
-			vy = -vy;
-			println("y: " + ball.getY());
-		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS){
-			vx = -vx;
-			ball.setLocation(WIDTH - BALL_RADIUS, ball.getY());
-		} else if (ball.getX() < 0) {
-			vx = -vx;
-			ball.setLocation(0, ball.getY());
-		}
-		if (getElementAt(ball.getX(),ball.getY()) != null){		
-			collisionLogic(ball.getX(),ball.getY());
-		} else if (getElementAt(ball.getX() + BALL_RADIUS ,ball.getY()) != null) {
-			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
-		} else if (getElementAt(ball.getX(),ball.getY() + BALL_RADIUS) != null) {
-			collisionLogic(ball.getX(),ball.getY() + BALL_RADIUS);
-		} else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
-			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS);
-		}
+		wallDetection();
+		objectDetection();
 	}
 	
 	// Responsible for moving the paddle in accordance with the mouse
@@ -169,6 +153,31 @@ public class Breakout extends GraphicsProgram {
 	private GObject getCollidingObject(double x, double y){
 		GObject collider = getElementAt(x,y);
 		return collider;
+	}
+	
+	private void wallDetection(){
+		if (ball.getY() > HEIGHT - 30 || ball.getY() < 0 + 4 ){
+			vy = -vy;
+			println("y: " + ball.getY());
+		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS){
+			vx = -vx;
+			ball.setLocation(WIDTH - BALL_RADIUS, ball.getY());
+		} else if (ball.getX() < 0) {
+			vx = -vx;
+			ball.setLocation(0, ball.getY());
+		}
+	}
+	
+	private void objectDetection(){
+		if (getElementAt(ball.getX(),ball.getY()) != null){		
+			collisionLogic(ball.getX(),ball.getY());
+		} else if (getElementAt(ball.getX() + BALL_RADIUS ,ball.getY()) != null) {
+			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
+		} else if (getElementAt(ball.getX(),ball.getY() + BALL_RADIUS) != null) {
+			collisionLogic(ball.getX(),ball.getY() + BALL_RADIUS);
+		} else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
+			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS);
+		}
 	}
 	
 	private void collisionLogic(double x, double y){
