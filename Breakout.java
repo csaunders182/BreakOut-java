@@ -184,6 +184,7 @@ public class Breakout extends GraphicsProgram {
 		scoreBoard = new GLabel("Score: " + score);
 		add(scoreBoard, WIDTH - 80, 20);
 		add(victoryLabel);
+		victoryLabel.setVisible(false);
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
@@ -232,7 +233,6 @@ public class Breakout extends GraphicsProgram {
 			ballStartAngle();	
 		}
 		liveTracker.setLabel("Lives: " + lives);
-		victoryLabel.setVisible(false);
 		waitForClick();
 		
 	}
