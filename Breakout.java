@@ -99,7 +99,7 @@ public class Breakout extends GraphicsProgram {
 		} else if (getElementAt(ball.getX() + BALL_RADIUS ,ball.getY()) != null) {
 			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
 		} else if (getElementAt(ball.getX(),ball.getY() + BALL_RADIUS) != null) {
-			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
+			collisionLogic(ball.getX(),ball.getY() + BALL_RADIUS);
 		} else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
 			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS);
 		}
