@@ -100,9 +100,9 @@ public class Breakout extends GraphicsProgram {
 			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
 		} else if (getElementAt(ball.getX(),ball.getY() + BALL_RADIUS) != null) {
 			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
-		} else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
-			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS);
-		}
+		} //else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
+//			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS);
+//		}
 	}
 	
 	// Responsible for moving the paddle in accordance with the mouse
