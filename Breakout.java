@@ -94,14 +94,13 @@ public class Breakout extends GraphicsProgram {
 			vx = -vx;
 			ball.setLocation(0, ball.getY());
 		}
-		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){
-			object = getElementAt(ball.getX() - 1,ball.getY() - 1);
-			println(object);
-//			if(object == paddle){
-//				vy = -vy;
-//			} else {
-//				removeBrick(object);
-//			}
+		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){		
+//			println(object);
+			if(getCollidingObject() == paddle){
+				vy = -vy;
+			} else {
+				removeBrick(getCollidingObject());
+			}
 		}
 	}
 	
@@ -166,7 +165,7 @@ public class Breakout extends GraphicsProgram {
 	
 	//returns object found if getElementAt(x,y) !=null
 	private GObject getCollidingObject(){
-		GObject collider = getCollidingObject();
+		GObject collider = getElementAt(ball.getX() - 1,ball.getY() - 1);
 		return collider;
 	}
 	
@@ -184,8 +183,7 @@ public class Breakout extends GraphicsProgram {
 	private GOval ball;
 	//ball velocity tracker
 	private double vx, vy;
-	
-	GObject object;
+
 	
 	
 	
