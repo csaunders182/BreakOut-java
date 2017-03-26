@@ -180,7 +180,7 @@ public class Breakout extends GraphicsProgram {
 		liveTracker = new GLabel("Lives: " + lives);
 		add(liveTracker, 10, 20);
 		scoreBoard = new GLabel("Score: " + score);
-		add(scoreBoard, WIDTH - 30, 20);
+		add(scoreBoard, WIDTH - 60, 20);
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
