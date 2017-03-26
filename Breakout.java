@@ -66,12 +66,12 @@ public class Breakout extends GraphicsProgram {
 		createPaddle();
 		addMouseListeners();
 		ballStartAngle();
+		vy = 4.0;
 	}
 
 	/* Method: run() */
 	/** Runs the Breakout program. */
-	public void run() {
-		vy = 4.0;
+	public void run() {	
 		waitForClick();
 		while (brickCount != 0) {
 			moveBall();
@@ -268,4 +268,10 @@ public class Breakout extends GraphicsProgram {
 	
 	//RandomGenerator for ball initial arc
 	RandomGenerator rGen = RandomGenerator.getInstance();
+	
+	public void mousePressed(MouseEvent e){
+		if (getElementAt(e.getX(),e.getY()) != null){		
+			collisionLogic(e.getX(),e.getY());
+		}
+	}
 }
