@@ -238,7 +238,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void victory(){
-		victoryLabel.setVisible(true);
+//		victoryLabel.setVisible(true);
 		waitForClick();
 		removeAll();
 		init();	
@@ -283,9 +283,9 @@ public class Breakout extends GraphicsProgram {
 	
 	GLabel victoryLabel = new GLabel("Victory", WIDTH/2, HEIGHT/2);
 	
-	public void mousePressed(MouseEvent e){
-		if (getElementAt(e.getX(),e.getY()) != null){		
-			collisionLogic(e.getX(),e.getY());
-		}
-	}
+//	public void mousePressed(MouseEvent e){
+//		if (getElementAt(e.getX(),e.getY()) != null){		
+//			collisionLogic(e.getX(),e.getY());
+//		}
+//	}
 }
