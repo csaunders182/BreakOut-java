@@ -96,7 +96,7 @@ public class Breakout extends GraphicsProgram {
 	// Responsible for moving the paddle in accordance with the mouse
 	// location on screen. X axis only!
 	public void mouseMoved(MouseEvent e){
-		if (e.getX() > PADDLE_WIDTH/2)
+		if (e.getX() > PADDLE_WIDTH/2 && e.getX() < WIDTH - PADDLE_WIDTH/2)
 		paddle.setLocation(e.getX() - PADDLE_WIDTH/2 , HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT);
 	}
 	
