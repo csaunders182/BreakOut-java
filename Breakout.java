@@ -73,7 +73,7 @@ public class Breakout extends GraphicsProgram {
 	public void run() {
 		vy = 4.0;
 		waitForClick();
-		while (true) {
+		while (brickCount != 0) {
 			moveBall();
 			checkForCollision();
 			pause(20);
@@ -120,7 +120,8 @@ public class Breakout extends GraphicsProgram {
 			brick.setColor(brickColorGetter(y));
 			add(brick);
 			brick.sendToFront();
-			x += BRICK_WIDTH + BRICK_SEP;	
+			x += BRICK_WIDTH + BRICK_SEP;
+			brickCount += 1;
 		}
 	}
 	
@@ -209,6 +210,7 @@ public class Breakout extends GraphicsProgram {
 			score += 10;
 			updateScore();
 			remove(object);
+			brickCount -= 1;
 		}	
 	}
 	
@@ -260,6 +262,9 @@ public class Breakout extends GraphicsProgram {
 	
 	//label for score
 	GLabel scoreBoard;
+	
+	//brick count
+	int brickCount = 0;
 	
 	//RandomGenerator for ball initial arc
 	RandomGenerator rGen = RandomGenerator.getInstance();
