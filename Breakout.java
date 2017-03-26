@@ -91,8 +91,9 @@ public class Breakout extends GraphicsProgram {
 			println("x: " + ball.getX());
 		}
 		if (getElementAt(ball.getX(),ball.getY()) != null){
-			GObject collisionEntity = getCollidingObject();
-			println(collisionEntity);
+			if(getCollidingObject() == paddle){
+				vy = -vy;
+			}
 		}
 	}
 	
