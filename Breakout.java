@@ -91,7 +91,8 @@ public class Breakout extends GraphicsProgram {
 			println("x: " + ball.getX());
 		}
 		if (getElementAt(ball.getX(),ball.getY()) != null){
-			if (element)
+			GObject collisionEntity = getCollidingObject();
+			println(collisionEntity);
 		}
 	}
 	
@@ -153,6 +154,12 @@ public class Breakout extends GraphicsProgram {
 		add(ball, WIDTH/2 - 8, HEIGHT/2);
 	}
 	
+	//returns object found if getElementAt(x,y) !=null
+	private GObject getCollidingObject(){
+		GObject collider = getCollidingObject();
+		return collider;
+	}
+	
 	//INSTANCE VARIABLES
 	//keeps track of paddle for mouseListener to reposition
 	private GRect paddle;
@@ -161,6 +168,8 @@ public class Breakout extends GraphicsProgram {
 	private GOval ball;
 	//ball velocity tracker
 	private double vx, vy;
+	
+	
 	
 	
 	//RandomGenerator for ball initial arc
