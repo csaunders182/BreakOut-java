@@ -175,7 +175,7 @@ public class Breakout extends GraphicsProgram {
 		GObject object = getCollidingObject(x,y);
 		println(object);
 		vy = -vy;
-		if (object != null) {
+		if (object != paddle) {
 			remove(object);
 		}
 		
