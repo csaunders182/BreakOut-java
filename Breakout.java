@@ -173,14 +173,14 @@ public class Breakout extends GraphicsProgram {
 	
 	private void collisionLogic(double x, double y){
 		GObject object = getCollidingObject(x,y);
-		println(object);
-		if(getCollidingObject(x,y) == paddle){
-			ball.setLocation(ball.getX(), HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT);
-			vy = -vy;
-		} else {
-			vy = -vy;
-			remove(getCollidingObject(x,y));
-		}
+		vy = -vy;
+//		println(object);
+//		if(getCollidingObject(x,y) == paddle){
+//			vy = -vy;
+//		} else {
+//			vy = -vy;
+//			remove(getCollidingObject(x,y));
+//		}
 	}
 	
 	//INSTANCE VARIABLES
