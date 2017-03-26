@@ -204,16 +204,18 @@ public class Breakout extends GraphicsProgram {
 		lives -= 1;
 		if (lives == 0) {
 			gameOver();
+		} else {
+			ball.setLocation(WIDTH/2, HEIGHT/2);
+			ballStartAngle();
+			waitForClick();
 		}
-		ball.setLocation(WIDTH/2, HEIGHT/2);
-		ballStartAngle();
-		waitForClick();
 	}
 	
 	private void gameOver(){
 		removeAll();
 		init();
 		waitForClick();
+		lives = 3;
 	}
 	private void ballStartAngle(){
 		vx = rGen.nextDouble(1.0,3.0);
