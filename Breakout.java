@@ -65,14 +65,13 @@ public class Breakout extends GraphicsProgram {
 		setupBricksRows();
 		createPaddle();
 		addMouseListeners();
-
-		vy = 4.0;
 		ballStartAngle();
 	}
 
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	public void run() {
+		vy = 4.0;
 		waitForClick();
 		while (true) {
 			moveBall();
