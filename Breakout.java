@@ -91,12 +91,13 @@ public class Breakout extends GraphicsProgram {
 			println("x: " + ball.getX());
 		}
 		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){
-			GObject object = getCollidingObject();
-			if(object == paddle){
-				vy = -vy;
-			} else {
-				removeBrick(object);
-			}
+			println(getCollidingObject());
+//			GObject object = getCollidingObject();
+//			if(object == paddle){
+//				vy = -vy;
+//			} else {
+//				removeBrick(object);
+//			}
 		}
 	}
 	
