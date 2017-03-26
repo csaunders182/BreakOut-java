@@ -211,7 +211,10 @@ public class Breakout extends GraphicsProgram {
 			updateScore();
 			remove(object);
 			brickCount -= 1;
-		}	
+		}
+		if (brickCount == 0){
+			victory();
+		}
 	}
 	
 	//called when the ball hits the bottom wall of the game space
@@ -228,8 +231,16 @@ public class Breakout extends GraphicsProgram {
 			ballStartAngle();	
 		}
 		liveTracker.setLabel("Lives: " + lives);
+		add(victoryLabel);
+		victoryLabel.setVisible(false);
 		waitForClick();
 		
+	}
+	
+	private void victory(){
+		victoryLabel.setVisible(true);
+		waitForClick();
+		init();	
 	}
 	
 	//uses rGen to set a random vx at the start of the game
@@ -268,6 +279,8 @@ public class Breakout extends GraphicsProgram {
 	
 	//RandomGenerator for ball initial arc
 	RandomGenerator rGen = RandomGenerator.getInstance();
+	
+	GLabel victoryLabel = new GLabel("Victory", WIDTH/2, HEIGHT/2;)
 	
 	public void mousePressed(MouseEvent e){
 		if (getElementAt(e.getX(),e.getY()) != null){		
