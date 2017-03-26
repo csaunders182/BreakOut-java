@@ -92,7 +92,7 @@ public class Breakout extends GraphicsProgram {
 			
 		} else if (ball.getX() < 0) {
 			vx = -vx;
-			ball.setLocation(ball.getX(), 1);
+			ball.setLocation(0, ball.getY());
 		}
 		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){
 			println("non null found");
