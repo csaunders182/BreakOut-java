@@ -96,6 +96,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){
 			object = getElementAt(ball.getX() - 1,ball.getY() - 1);
+			println(object);
 //			if(object == paddle){
 //				vy = -vy;
 //			} else {
