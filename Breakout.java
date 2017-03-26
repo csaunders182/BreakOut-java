@@ -175,9 +175,12 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	//creates the score and lives labels
 	private void createLabels(){
 		liveTracker = new GLabel("Lives: " + lives);
 		add(liveTracker, 10, 20);
+		scoreBoard = new GLabel("Score: " + score);
+		add(scoreBoard);
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
@@ -199,17 +202,22 @@ public class Breakout extends GraphicsProgram {
 		println(object);
 		vy = -vy;
 		if (object != paddle) {
+			score += 10;
+			updateScore();
 			remove(object);
 		}
 		
 	}
 	
+	//called when the ball hits the bottom wall of the game space
 	private void loseLife(){
 		lives -= 1;
 		if (lives == 0) {
 			removeAll();
 			init();
-			lives = 3;
+			lives = NTURNS;
+			score = 0;
+			updateScore();
 		} else {
 			ball.setLocation(WIDTH/2, HEIGHT/2);
 			ballStartAngle();	
@@ -219,7 +227,7 @@ public class Breakout extends GraphicsProgram {
 		
 	}
 	
-
+	//uses rGen to set a random vx at the start of the game
 	private void ballStartAngle(){
 		vx = rGen.nextDouble(1.0,3.0);
 		if (rGen.nextBoolean(0.5)) vx = -vx;
@@ -234,14 +242,20 @@ public class Breakout extends GraphicsProgram {
 	//ball velocity tracker
 	private double vx, vy;
 	
+	private void updateScore(){
+		scoreBoard.setLabel("Score: " + score);
+	}
 	//tracks players lives
-	int lives = 3;
+	int lives = NTURNS;
 	
 	//label for lives
 	GLabel liveTracker;
 	
+	//score tracker
+	int score = 0;
 	
-	
+	//label for score
+	GLabel scoreBoard;
 	
 	//RandomGenerator for ball initial arc
 	RandomGenerator rGen = RandomGenerator.getInstance();
