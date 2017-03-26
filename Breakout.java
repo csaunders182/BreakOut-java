@@ -86,7 +86,6 @@ public class Breakout extends GraphicsProgram {
 	private void checkForCollision(){
 		println("started Collision Detection");
 		if (ball.getY() > HEIGHT - 30 || ball.getY() < 0 + 4 ){
-			println("non null found");
 			vy = -vy;
 			println("y: " + ball.getY());
 		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS -1|| ball.getX() < 0 + 2.07){
@@ -94,7 +93,7 @@ public class Breakout extends GraphicsProgram {
 			println("x: " + ball.getX());
 		}
 		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){
-			println(getCollidingObject());
+			println("non null found");
 //			GObject object = getCollidingObject();
 //			if(object == paddle){
 //				vy = -vy;
