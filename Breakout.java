@@ -168,6 +168,7 @@ public class Breakout extends GraphicsProgram {
 	//returns object found if getElementAt(x,y) !=null
 	private GObject getCollidingObject(double x, double y){
 		GObject collider = getElementAt(x,y);
+		println(collider);
 		return collider;
 	}
 	
@@ -177,7 +178,6 @@ public class Breakout extends GraphicsProgram {
 			remove(getCollidingObject(x,y));
 		} else {
 			vy = -vy;
-			println("paddlehit");
 		}
 	}
 	
