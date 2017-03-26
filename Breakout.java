@@ -280,7 +280,7 @@ public class Breakout extends GraphicsProgram {
 	//RandomGenerator for ball initial arc
 	RandomGenerator rGen = RandomGenerator.getInstance();
 	
-	GLabel victoryLabel = new GLabel("Victory", WIDTH/2, HEIGHT/2;)
+	GLabel victoryLabel = new GLabel("Victory", WIDTH/2, HEIGHT/2);
 	
 	public void mousePressed(MouseEvent e){
 		if (getElementAt(e.getX(),e.getY()) != null){		
