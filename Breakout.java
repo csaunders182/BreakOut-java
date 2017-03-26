@@ -283,9 +283,4 @@ public class Breakout extends GraphicsProgram {
 	
 	GLabel victoryLabel = new GLabel("Victory", WIDTH/2, HEIGHT/2);
 	
-//	public void mousePressed(MouseEvent e){
-//		if (getElementAt(e.getX(),e.getY()) != null){		
-//			collisionLogic(e.getX(),e.getY());
-//		}
-//	}
 }
