@@ -200,13 +200,15 @@ public class Breakout extends GraphicsProgram {
 	private void collisionLogic(double x, double y){
 		GObject object = getCollidingObject(x,y);
 		println(object);
-		vy = -vy;
-		if (object != paddle) {
+		
+		if (object == paddle) {
+			vy = -vy;
+		} else if (object != scoreBoard || object != liveTracker){
+			vy = -vy;
 			score += 10;
 			updateScore();
 			remove(object);
-		}
-		
+		}	
 	}
 	
 	//called when the ball hits the bottom wall of the game space
