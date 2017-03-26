@@ -180,7 +180,7 @@ public class Breakout extends GraphicsProgram {
 		liveTracker = new GLabel("Lives: " + lives);
 		add(liveTracker, 10, 20);
 		scoreBoard = new GLabel("Score: " + score);
-		add(scoreBoard);
+		add(scoreBoard, WIDTH - 30, 20);
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
@@ -242,6 +242,7 @@ public class Breakout extends GraphicsProgram {
 	//ball velocity tracker
 	private double vx, vy;
 	
+	//updates the score text on the scoreBoard
 	private void updateScore(){
 		scoreBoard.setLabel("Score: " + score);
 	}
