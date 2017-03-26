@@ -176,10 +176,8 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void createLabels(){
-		if (liveTracker == null) {
 		liveTracker = new GLabel("Lives: " + lives);
 		add(liveTracker, 10, 20);
-		}
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
