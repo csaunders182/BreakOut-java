@@ -60,10 +60,8 @@ public class Breakout extends GraphicsProgram {
 	/* Method: init() */
 	/** Sets up the Breakout program. */
 	public void init() {
-		/* You fill this in, along with any subsidiary methods */
 		createBall();
 		setupBricksRows();
-		createLabels();
 		createPaddle();
 		addMouseListeners();
 		ballStartAngle();
@@ -72,6 +70,7 @@ public class Breakout extends GraphicsProgram {
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	public void run() {
+		createLabels();
 		vy = 4.0;
 		waitForClick();
 		while (true) {
