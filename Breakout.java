@@ -238,7 +238,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void victory(){
-//		victoryLabel.setVisible(true);
+		victoryLabel.setVisible(true);
 		waitForClick();
 		removeAll();
 		init();	
