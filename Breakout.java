@@ -67,8 +67,7 @@ public class Breakout extends GraphicsProgram {
 		addMouseListeners();
 
 		vy = 4.0;
-		vx = rGen.nextDouble(1.0,3.0);
-		if (rGen.nextBoolean(0.5)) vx = -vx;
+		ballStartAngle();
 	}
 
 	/* Method: run() */
@@ -80,10 +79,15 @@ public class Breakout extends GraphicsProgram {
 			pause(20);
 		}
 	}
+	
+	//moves the ball in the game world
 	private void moveBall(){
 		ball.move(vx, vy);
 	}
 	
+	//method for collision detection as the ball moves
+	//called eachtime the ball moves. checks for points on the ball
+	//also detects walls
 	private void checkForCollision(){
 		wallDetection();
 		objectDetection();
@@ -127,7 +131,7 @@ public class Breakout extends GraphicsProgram {
 		add(paddle);
 	}
 	
-	//takes y position data from setupBricksRows() to determine row colow
+	//takes y position data from setupBricksRows() to determine row color
 	private Color brickColorGetter(int y){
 		if (y==70 || y==82){
 			return Color.RED;
@@ -155,8 +159,9 @@ public class Breakout extends GraphicsProgram {
 		return collider;
 	}
 	
+	//holds the logic for wall detection in the checkForCollisions() method
 	private void wallDetection(){
-		if (ball.getY() > HEIGHT - 30 || ball.getY() < 0 + 4 ){
+		if (ball.getY() < 0 + 4 ){
 			vy = -vy;
 			println("y: " + ball.getY());
 		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS){
@@ -165,9 +170,12 @@ public class Breakout extends GraphicsProgram {
 		} else if (ball.getX() < 0) {
 			vx = -vx;
 			ball.setLocation(0, ball.getY());
+		} else if (ball.getY() > HEIGHT - 30) {
+			loseLife();
 		}
 	}
 	
+	//hold the object detection logic for checkForCollisions() method
 	private void objectDetection(){
 		if (getElementAt(ball.getX(),ball.getY()) != null){		
 			collisionLogic(ball.getX(),ball.getY());
@@ -180,6 +188,7 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	//is called whenever a detection of a object is detected. if paddle it bounces. if brick it removes(currently)
 	private void collisionLogic(double x, double y){
 		GObject object = getCollidingObject(x,y);
 		println(object);
@@ -190,6 +199,21 @@ public class Breakout extends GraphicsProgram {
 		
 	}
 	
+	private void loseLife(){
+		lives -= 1;
+		if (lives == 0) {
+//			gameOver();
+		}
+		ball.setLocation(WIDTH/2, HEIGHT/2);
+		ballStartAngle();
+		waitForClick();
+	}
+	
+	private void ballStartAngle(){
+		vx = rGen.nextDouble(1.0,3.0);
+		if (rGen.nextBoolean(0.5)) vx = -vx;
+	}
+	
 	//INSTANCE VARIABLES
 	//keeps track of paddle for mouseListener to reposition
 	private GRect paddle;
@@ -198,7 +222,9 @@ public class Breakout extends GraphicsProgram {
 	private GOval ball;
 	//ball velocity tracker
 	private double vx, vy;
-
+	
+	//tracks players lives
+	int lives = 3;
 	
 	
 	
