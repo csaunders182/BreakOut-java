@@ -100,9 +100,9 @@ public class Breakout extends GraphicsProgram {
 			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
 		} else if (getElementAt(ball.getX(),ball.getY() + BALL_RADIUS) != null) {
 			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
-		} //else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
-//			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS);
-//		}
+		} else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
+			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS);
+		}
 	}
 	
 	// Responsible for moving the paddle in accordance with the mouse
@@ -173,12 +173,12 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void collisionLogic(double x, double y){
-//		if(getCollidingObject(x,y) != paddle){
-//			vy = -vy;
-//			remove(getCollidingObject(x,y));
-//		} else {
-//			vy = -vy;
-//		}
+		if(getCollidingObject(x,y) == paddle){
+			vy = -vy;
+			remove(getCollidingObject(x,y));
+		} else {
+			vy = -vy;
+		}
 	}
 	
 	//INSTANCE VARIABLES
