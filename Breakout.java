@@ -94,14 +94,8 @@ public class Breakout extends GraphicsProgram {
 			vx = -vx;
 			ball.setLocation(0, ball.getY());
 		}
-		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){		
-//			println(object);
-			if(getCollidingObject() == paddle){
-				vy = -vy;
-			} else {
-				vy = -vy;
-				removeBrick(getCollidingObject());
-			}
+		if (getElementAt(ball.getX(),ball.getY()) != null){		
+			collisionLogic(ball.getX(),ball.getY());
 		}
 	}
 	
@@ -165,15 +159,18 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	//returns object found if getElementAt(x,y) !=null
-	private GObject getCollidingObject(){
-		GObject collider = getElementAt(ball.getX() - 1,ball.getY() - 1);
+	private GObject getCollidingObject(double x, double y){
+		GObject collider = getElementAt(x,y);
 		return collider;
 	}
 	
-	private void removeBrick(GObject gObject){
-		GObject object = gObject;
-		remove(object);
-		
+	private void collisionLogic(double x, double y){
+		if(getCollidingObject(x,y) == paddle){
+			vy = -vy;
+		} else {
+			vy = -vy;
+			remove(getCollidingObject(x,y));
+		}
 	}
 	
 	//INSTANCE VARIABLES
