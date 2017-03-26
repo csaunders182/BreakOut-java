@@ -95,8 +95,7 @@ public class Breakout extends GraphicsProgram {
 			ball.setLocation(0, ball.getY());
 		}
 		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){
-			println("non null found");
-//			GObject object = getCollidingObject();
+			GObject object = getCollidingObject();
 //			if(object == paddle){
 //				vy = -vy;
 //			} else {
