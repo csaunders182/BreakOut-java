@@ -177,8 +177,8 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void createLabels(){
-		liveTracker = new GLabel("Lives: " + lives, 10, 10);
-		add(liveTracker);
+		liveTracker = new GLabel("Lives: " + lives);
+		add(liveTracker, 10, 20);
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
@@ -212,6 +212,7 @@ public class Breakout extends GraphicsProgram {
 		} else {
 			ball.setLocation(WIDTH/2, HEIGHT/2);
 			ballStartAngle();
+			liveTracker = new GLabel("Lives: " + lives);
 			waitForClick();
 		}
 	}
