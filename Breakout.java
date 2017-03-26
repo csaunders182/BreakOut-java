@@ -73,6 +73,7 @@ public class Breakout extends GraphicsProgram {
 	/* Method: run() */
 	/** Runs the Breakout program. */
 	public void run() {
+		waitForClick();
 		while (true) {
 			moveBall();
 			checkForCollision();
@@ -202,13 +203,18 @@ public class Breakout extends GraphicsProgram {
 	private void loseLife(){
 		lives -= 1;
 		if (lives == 0) {
-//			gameOver();
+			gameOver();
 		}
 		ball.setLocation(WIDTH/2, HEIGHT/2);
 		ballStartAngle();
 		waitForClick();
 	}
 	
+	private void gameOver(){
+		removeAll();
+		init();
+		waitForClick();
+	}
 	private void ballStartAngle(){
 		vx = rGen.nextDouble(1.0,3.0);
 		if (rGen.nextBoolean(0.5)) vx = -vx;
