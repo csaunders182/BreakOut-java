@@ -175,6 +175,11 @@ public class Breakout extends GraphicsProgram {
 		}
 	}
 	
+	private void createLabels(){
+		liveTracker = new GLabel("Lives: " + lives, 10, 10);
+		add(liveTracker);
+	}
+	
 	//hold the object detection logic for checkForCollisions() method
 	private void objectDetection(){
 		if (getElementAt(ball.getX(),ball.getY()) != null){		
@@ -232,6 +237,9 @@ public class Breakout extends GraphicsProgram {
 	
 	//tracks players lives
 	int lives = 3;
+	
+	//label for lives
+	GLabel liveTracker;
 	
 	
 	
