@@ -94,7 +94,7 @@ public class Breakout extends GraphicsProgram {
 			if(getCollidingObject() == paddle){
 				vy = -vy;
 			} else {
-				removeBrick();
+				removeBrick(getCollidingObject());
 			}
 		}
 	}
