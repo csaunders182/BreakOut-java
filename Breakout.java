@@ -207,21 +207,19 @@ public class Breakout extends GraphicsProgram {
 	private void loseLife(){
 		lives -= 1;
 		if (lives == 0) {
-			gameOver();
+			removeAll();
+			init();
+			lives = 3;
 		} else {
 			ball.setLocation(WIDTH/2, HEIGHT/2);
-			ballStartAngle();			
-			waitForClick();
+			ballStartAngle();	
 		}
 		liveTracker.setLabel("Lives: " + lives);
+		waitForClick();
+		
 	}
 	
-	private void gameOver(){
-		removeAll();
-		init();
-		waitForClick();
-		lives = 3;
-	}
+
 	private void ballStartAngle(){
 		vx = rGen.nextDouble(1.0,3.0);
 		if (rGen.nextBoolean(0.5)) vx = -vx;
