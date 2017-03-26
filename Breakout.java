@@ -61,10 +61,11 @@ public class Breakout extends GraphicsProgram {
 	/** Sets up the Breakout program. */
 	public void init() {
 		/* You fill this in, along with any subsidiary methods */
+		createBall();
 		setupBricksRows();
 		createPaddle();
 		addMouseListeners();
-		createBall();
+
 		vy = 4.0;
 		vx = rGen.nextDouble(1.0,3.0);
 		if (rGen.nextBoolean(0.5)) vx = -vx;
