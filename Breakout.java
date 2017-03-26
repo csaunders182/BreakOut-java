@@ -172,12 +172,12 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void collisionLogic(double x, double y){
-		println("paddle hit");
 		if(getCollidingObject(x,y) != paddle){
 			vy = -vy;
 			remove(getCollidingObject(x,y));
 		} else {
-			vy = -vy;	
+			vy = -vy;
+			println("paddlehit");
 		}
 	}
 	
