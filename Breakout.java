@@ -93,6 +93,8 @@ public class Breakout extends GraphicsProgram {
 		if (getElementAt(ball.getX() - 1,ball.getY() - 1) != null){
 			if(getCollidingObject() == paddle){
 				vy = -vy;
+			} else {
+				removeBrick();
 			}
 		}
 	}
@@ -159,6 +161,12 @@ public class Breakout extends GraphicsProgram {
 	private GObject getCollidingObject(){
 		GObject collider = getCollidingObject();
 		return collider;
+	}
+	
+	private void removeBrick(GObject gObject){
+		GObject object = gObject;
+		remove(object);
+		
 	}
 	
 	//INSTANCE VARIABLES
