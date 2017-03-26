@@ -96,10 +96,12 @@ public class Breakout extends GraphicsProgram {
 		}
 		if (getElementAt(ball.getX(),ball.getY()) != null){		
 			collisionLogic(ball.getX(),ball.getY());
-		} else if (getElementAt(ball.getX() + BALL_RADIUS *2 ,ball.getY()) != null) {
-			collisionLogic(ball.getX() + BALL_RADIUS *2,ball.getY());
-		} else if (getElementAt(ball.getX(),ball.getY() + BALL_RADIUS *2) != null) {
-			
+		} else if (getElementAt(ball.getX() + BALL_RADIUS ,ball.getY()) != null) {
+			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
+		} else if (getElementAt(ball.getX(),ball.getY() + BALL_RADIUS) != null) {
+			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
+		} else if (getElementAt(ball.getX() + BALL_RADIUS,ball.getY() + BALL_RADIUS) != null) {
+			collisionLogic(ball.getX() + BALL_RADIUS,ball.getY());
 		}
 	}
 	
@@ -157,7 +159,7 @@ public class Breakout extends GraphicsProgram {
 	
 	//create and adds ball to canvas
 	private void createBall(){
-		ball = new GOval(BALL_RADIUS *2,BALL_RADIUS *2);
+		ball = new GOval(BALL_RADIUS,BALL_RADIUS);
 		ball.setFilled(true);
 		add(ball, WIDTH/2 - 8, HEIGHT/2);
 	}
