@@ -207,7 +207,7 @@ public class Breakout extends GraphicsProgram {
 		
 		if (object == paddle) {
 			vy = -vy;
-			ball.setLocation(ball.getX(), HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT);
+			ball.setLocation(ball.getX(), HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT + BALL_RADIUS);
 		} else if (object != scoreBoard || object != liveTracker){
 			vy = -vy;
 			score += 10;
