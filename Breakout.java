@@ -185,8 +185,6 @@ public class Breakout extends GraphicsProgram {
 		add(liveTracker, 10, 20);
 		scoreBoard = new GLabel("Score: " + score);
 		add(scoreBoard, WIDTH - 80, 20);
-		add(victoryLabel);
-		victoryLabel.setVisible(false);
 	}
 	
 	//hold the object detection logic for checkForCollisions() method
@@ -220,7 +218,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		bounceClip();
 		if (brickCount%10 == 0){
-			vy *= 1.05; 
+			vy *= 1.07; 
 		}
 	}
 	
@@ -243,7 +241,7 @@ public class Breakout extends GraphicsProgram {
 	}
 	
 	private void victory(){
-		victoryLabel.setVisible(true);
+		add(victoryLabel);
 		waitForClick();
 		removeAll();
 		init();	
