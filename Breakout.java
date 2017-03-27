@@ -220,7 +220,7 @@ public class Breakout extends GraphicsProgram {
 		}
 		bounceClip();
 		if (brickCount%10 == 0){
-			vy *= 1.10; 
+			vy *= 1.05; 
 		}
 	}
 	
