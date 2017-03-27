@@ -208,12 +208,14 @@ public class Breakout extends GraphicsProgram {
 		if (object == paddle) {
 			vy = -vy;
 			ball.setLocation(ball.getX(), HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT - BALL_RADIUS);
+			bounceClip.play();
 		} else if (object != scoreBoard || object != liveTracker){
 			vy = -vy;
 			score += 10;
 			updateScore();
 			remove(object);
 			brickCount -= 1;
+			bounceClip.play();
 		}
 		if (brickCount == 0){
 			victory();
@@ -281,6 +283,9 @@ public class Breakout extends GraphicsProgram {
 	
 	//RandomGenerator for ball initial arc
 	RandomGenerator rGen = RandomGenerator.getInstance();
+	
+	//bounce noise
+	AudioClip bounceClip = MediaTools.loadAudioClip("bounce.au");
 	
 	GLabel victoryLabel = new GLabel("Victory", WIDTH/2, HEIGHT/2);
 	
