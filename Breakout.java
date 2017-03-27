@@ -203,19 +203,16 @@ public class Breakout extends GraphicsProgram {
 	//is called whenever a detection of a object is detected. if paddle it bounces. if brick it removes(currently)
 	private void collisionLogic(double x, double y){
 		GObject object = getCollidingObject(x,y);
-		println(object);
-		
+		bounceClip.play();
 		if (object == paddle) {
 			vy = -vy;
 			ball.setLocation(ball.getX(), HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT - BALL_RADIUS);
-			bounceClip.play();
 		} else if (object != scoreBoard || object != liveTracker){
 			vy = -vy;
 			score += 10;
 			updateScore();
 			remove(object);
 			brickCount -= 1;
-			bounceClip.play();
 		}
 		if (brickCount == 0){
 			victory();
