@@ -165,17 +165,18 @@ public class Breakout extends GraphicsProgram {
 	private void wallDetection(){
 		if (ball.getY() < 0 + 4 ){
 			vy = -vy;
-			println("y: " + ball.getY());
+			bounceClip.play();
 		} else if (ball.getX() > APPLICATION_WIDTH - BALL_RADIUS){
 			vx = -vx;
 			ball.setLocation(WIDTH - BALL_RADIUS, ball.getY());
+			bounceClip.play();
 		} else if (ball.getX() < 0) {
 			vx = -vx;
 			ball.setLocation(0, ball.getY());
+			bounceClip.play();
 		} else if (ball.getY() > HEIGHT - 30) {
 			loseLife();
 		}
-		bounceClip();
 	}
 	
 	//creates the score and lives labels
