@@ -219,6 +219,9 @@ public class Breakout extends GraphicsProgram {
 			victory();
 		}
 		bounceClip();
+		if (brickCount%10 == 0){
+			vy *= 1.25; 
+		}
 	}
 	
 	//called when the ball hits the bottom wall of the game space
