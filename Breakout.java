@@ -175,6 +175,7 @@ public class Breakout extends GraphicsProgram {
 		} else if (ball.getY() > HEIGHT - 30) {
 			loseLife();
 		}
+		bounceClip();
 	}
 	
 	//creates the score and lives labels
@@ -203,11 +204,10 @@ public class Breakout extends GraphicsProgram {
 	//is called whenever a detection of a object is detected. if paddle it bounces. if brick it removes(currently)
 	private void collisionLogic(double x, double y){
 		GObject object = getCollidingObject(x,y);
-		bounceClip.play();
 		if (object == paddle) {
 			vy = -vy;
 			ball.setLocation(ball.getX(), HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT - BALL_RADIUS);
-		} else if (object != scoreBoard || object != liveTracker){
+		} else if (object != scoreBoard || object != liveTracker || object != victoryLabel){
 			vy = -vy;
 			score += 10;
 			updateScore();
@@ -217,6 +217,7 @@ public class Breakout extends GraphicsProgram {
 		if (brickCount == 0){
 			victory();
 		}
+		bounceClip();
 	}
 	
 	//called when the ball hits the bottom wall of the game space
@@ -263,6 +264,11 @@ public class Breakout extends GraphicsProgram {
 	private void updateScore(){
 		scoreBoard.setLabel("Score: " + score);
 	}
+	
+	private void bounceClip(){
+		bounceClip.play();
+	}
+	
 	//tracks players lives
 	int lives = NTURNS;
 	
